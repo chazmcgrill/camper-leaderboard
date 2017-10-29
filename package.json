@@ -1,10 +1,11 @@
 {
   "name": "camper-leaderboard",
   "version": "1.0.0",
-  "description": "Freecodecamp camper leaderboard.",
+  "description": "freecodecamp camper leaderboard",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --port 8081",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,7 @@
     "freecodecamp"
   ],
   "author": "Charlie Taylor",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/chazmcgrill/camper-leaderboard/issues"
   },
