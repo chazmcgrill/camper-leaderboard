@@ -24,18 +24,31 @@ class Camper extends Component {
 class CamperList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      apiUrl: "https://fcctop100.herokuapp.com/api/fccusers/top/"
+    };
   }
 
-  componentDidMount() {
-    fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
+  fetchFunction(url) {
+    fetch(url)
       .then((Response) => Response.json())
       .then((findResponse) => {
-        console.log(findResponse);
         this.setState({
           data: findResponse
         });
       });
+  }
+
+  choice(allTime) {
+    return allTime ? 'alltime' : 'recent';
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.fetchFunction(this.state.apiUrl + this.choice(nextProps.buttonChoice));
+  }
+
+  componentDidMount() {
+    this.fetchFunction(this.state.apiUrl + this.choice(false));
   }
 
   render() {
@@ -60,20 +73,39 @@ class CamperList extends Component {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allTimeButton: false
+    };
+  }
+
+  recentClicked() {
+    this.setState({
+      allTimeButton: false
+    });
+  }
+
+  allTimeClicked() {
+    this.setState({
+      allTimeButton: true
+    });
+  }
+
   render() {
     return (
       <div className="container">
         <table>
           <thead>
             <tr>
-              <th>No.</th>
+              <th>Rank</th>
+              <th></th>
               <th>Camper</th>
-              <th />
-              <th>30 Days</th>
-              <th>All Time</th>
+              <th onClick={ this.recentClicked.bind(this) }>30 Days</th>
+              <th onClick={ this.allTimeClicked.bind(this) }>All Time</th>
             </tr>
           </thead>
-          <CamperList />
+          <CamperList buttonChoice={this.state.allTimeButton}/>
         </table>
       </div>
     )
