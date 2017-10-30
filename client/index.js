@@ -96,7 +96,7 @@ class App extends Component {
   }
 
   isActive(value) {
-    return (value === this.state.selected) ? 'active' : 'btn';
+    return (value === this.state.selected) ? 'active' : 'default';
   }
 
   render() {

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 html {
   font-family: "Roboto", sans-serif;
-  font-size: 15px;
+  font-size: 12px;
   letter-spacing: 0.2px; }
 
 body {
@@ -15,9 +15,9 @@ h2 {
 .container {
   padding: 0 0 10px 0; }
 
-.btn {
+.default {
   cursor: pointer; }
-  .btn:hover {
+  .default:hover {
     color: #2b90d9; }
 
 th, tr {
@@ -55,3 +55,17 @@ a {
 
 .active {
   color: #2b90d9; }
+
+.footer {
+  font-size: 11px;
+  text-align: center;
+  padding: 20px; }
+
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 15px; }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    border-radius: 2px; } }
