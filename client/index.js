@@ -7,21 +7,20 @@ class Camper extends Component {
     return (
       <tr>
         <td>{this.props.rank}</td>
+        <td><img src={this.props.camper.img} /></td>
         <td>{this.props.camper.username}</td>
         <td>{this.props.camper.recent}</td>
         <td>{this.props.camper.alltime}</td>
       </tr>
     )
   }
-  
+
 }
 
 class CamperList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      requestFailed: false
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -63,9 +62,10 @@ class App extends Component {
         <table>
           <thead>
             <tr>
-              <th>Rank</th>
-              <th>Camper</th>
-              <th>Last 30 Days</th>
+              <th>#</th>
+              <th>User</th>
+              <th />
+              <th>30 Days</th>
               <th>All Time</th>
             </tr>
           </thead>
