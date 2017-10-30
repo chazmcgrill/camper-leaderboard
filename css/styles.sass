@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto')
 
+$blue: #2b90d9
+$text: #0f0f0f
+$grey: #ddd
+$white: #fff
+
 html
   font-family: 'Roboto', sans-serif
   font-size: 15px
@@ -8,13 +13,19 @@ html
 body
   height: 100%
   margin: 0
-  background: #ddd
+  background: $grey
 
 h2
   text-align: center
 
 .container
   padding: 0 0 10px 0
+
+.btn
+  cursor: pointer
+
+  &:hover
+    color: $blue
 
 th, tr
   height: 50px
@@ -25,7 +36,7 @@ tr
   box-shadow: 0 .1px 1px rgba(0,0,0,0.16), 0 .1px 1px rgba(0,0,0,0.23)
 
 tbody tr:nth-of-type(even), thead
-  background: #fff
+  background: $white
 
 table, td
   border-collapse: collapse
@@ -45,7 +56,10 @@ td:nth-child(3), th:nth-child(3)
 
 a
   text-decoration: none
-  color: black
+  color: $text
 
   &:hover
-    color: #2b90d9
+    color: $blue
+
+.active
+  color: $blue

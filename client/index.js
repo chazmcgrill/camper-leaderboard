@@ -76,20 +76,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allTimeButton: false
+      allTimeButton: false,
+      selected: ''
     };
   }
 
   recentClicked() {
     this.setState({
-      allTimeButton: false
+      allTimeButton: false,
+      selected: 'recent'
     });
   }
 
   allTimeClicked() {
     this.setState({
-      allTimeButton: true
+      allTimeButton: true,
+      selected: 'alltime'
     });
+  }
+
+  isActive(value) {
+    return (value === this.state.selected) ? 'active' : 'btn';
   }
 
   render() {
@@ -101,8 +108,8 @@ class App extends Component {
               <th>Rank</th>
               <th></th>
               <th>Camper</th>
-              <th onClick={ this.recentClicked.bind(this) }>30 Days</th>
-              <th onClick={ this.allTimeClicked.bind(this) }>All Time</th>
+              <th className={this.isActive('recent')} onClick={ this.recentClicked.bind(this) }>30 Days</th>
+              <th className={this.isActive('alltime')} onClick={ this.allTimeClicked.bind(this) }>All Time</th>
             </tr>
           </thead>
           <CamperList buttonChoice={this.state.allTimeButton}/>
