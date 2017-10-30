@@ -1,16 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 html {
-  font-family: sans-serif;
-  font-size: 14px; }
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2px; }
 
 body {
   height: 100%;
-  margin: 0; }
+  margin: 0;
+  background: #ddd; }
 
-h2, p {
+h2 {
   text-align: center; }
 
 .container {
-  padding: 0; }
+  padding: 5px; }
 
 th {
   height: 50px;
@@ -18,7 +21,7 @@ th {
   padding-left: 10px; }
 
 tbody tr:nth-of-type(even), thead {
-  background: #ddd; }
+  background: #fff; }
 
 table, td {
   border-collapse: collapse; }
@@ -32,3 +35,12 @@ img {
 
 td {
   padding: 5px; }
+
+td:nth-child(1), td:nth-child(n+4) {
+  text-align: center; }
+
+a {
+  text-decoration: none;
+  color: black; }
+  a:hover {
+    color: #2b90d9; }

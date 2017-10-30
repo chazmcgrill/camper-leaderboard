@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 
 class Camper extends Component {
 
+  userUrl() {
+    return `https://www.freecodecamp.org/${this.props.camper.username}`
+  }
+
   render() {
     return (
       <tr>
         <td>{this.props.rank}</td>
         <td><img src={this.props.camper.img} /></td>
-        <td>{this.props.camper.username}</td>
+        <td><a href={this.userUrl()}>{this.props.camper.username}</a></td>
         <td>{this.props.camper.recent}</td>
         <td>{this.props.camper.alltime}</td>
       </tr>
@@ -62,8 +66,8 @@ class App extends Component {
         <table>
           <thead>
             <tr>
-              <th>#</th>
-              <th>User</th>
+              <th>No.</th>
+              <th>Camper</th>
               <th />
               <th>30 Days</th>
               <th>All Time</th>
